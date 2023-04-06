@@ -4,7 +4,7 @@ struct addPlayerView: View {
     
     @Environment(\.managedObjectContext) var moc
     
-    @State var dataController = PlayersDataController(name: "Players")
+    
     @State var playerName: String = ""
     
     var body: some View {
@@ -32,7 +32,6 @@ struct addPlayerView: View {
                     .cornerRadius(5)
                 
                 PlayerRowView()
-                    .environment(\.managedObjectContext, dataController.nsContainer.viewContext)
                     .frame(width: UIScreen.screenWidth - 56)
                 
                 Button() {

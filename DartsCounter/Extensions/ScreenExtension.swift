@@ -1,10 +1,3 @@
-//
-//  ScreenExtension.swift
-//  DartsCounter
-//
-//  Created by Marius Hübbertz on 05.04.23.
-//
-
 import Foundation
 import SwiftUI
 

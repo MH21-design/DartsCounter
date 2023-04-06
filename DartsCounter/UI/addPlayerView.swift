@@ -1,10 +1,3 @@
-//
-//  addPlayerView.swift
-//  DartsCounter
-//
-//  Created by Marius Hübbertz on 05.04.23.
-//
-
 import SwiftUI
 
 struct addPlayerView: View {
@@ -46,6 +39,8 @@ struct addPlayerView: View {
                     let newPlayer = Player(context: moc)
                     newPlayer.id = UUID()
                     newPlayer.name = playerName
+                    
+                    try? moc.save()
                     
                     playerName = ""
                 } label: {

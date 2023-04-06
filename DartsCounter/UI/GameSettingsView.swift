@@ -1,10 +1,3 @@
-//
-//  GameSettingsView.swift
-//  DartsCounter
-//
-//  Created by Marius Hübbertz on 02.04.23.
-//
-
 import SwiftUI
 
 struct GameSettingsView: View {

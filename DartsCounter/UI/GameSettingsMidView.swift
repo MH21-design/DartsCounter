@@ -1,9 +1,4 @@
-//
-//  GameSettingsMidView.swift
-//  DartsCounter
-//
-//  Created by Marius Hübbertz on 05.04.23.
-//
+
 
 import SwiftUI
 

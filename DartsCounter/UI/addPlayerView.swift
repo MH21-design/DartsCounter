@@ -3,8 +3,6 @@ import SwiftUI
 struct addPlayerView: View {
     
     @Environment(\.managedObjectContext) var moc
-    
-    
     @State var playerName: String = ""
     
     var body: some View {

@@ -4,28 +4,18 @@ struct GameSettingsView: View {
     
     @State var showSheet: Bool = false
     
-    
     var playerOne = "Add Player"
     var playerTwo = "Add Player"
     
     var body: some View {
         
-        // BACKGROUND ---------------------------------------------------------------------------
         ZStack {
-            Color.secondary
-                .opacity(0.2)
-                .ignoresSafeArea()
+            BackgroundView()
             
-        // CONTENET ---------------------------------------------------------------------------
             VStack {
-                Color("myColor")
-                    .ignoresSafeArea()
-                    .frame(height: 90)
-                    .ignoresSafeArea()
+                TopBarView()
                 
-               
                 HStack(spacing: 80) {
-                    
                     VStack {
                         Image(systemName: "person")
                             .resizable()
@@ -51,7 +41,7 @@ struct GameSettingsView: View {
                             .font(Font.system(.title2, weight: .ultraLight))
                             .background(Color.white)
                             .clipShape(Circle())
-                            
+                        
                         
                         Text(playerTwo)
                             .padding()
@@ -63,11 +53,11 @@ struct GameSettingsView: View {
                 .padding(.horizontal, 32)
                 
                 Spacer()
-                // MID SECTION ---------------------------------------------------------------------------
+                
                 GameSettingsMidView()
                 
                 Spacer()
-                //BOTTOM ---------------------------------------------------------------------------
+                
                 GameSettingsBottomView()
             }
             .toolbar() {
@@ -82,7 +72,7 @@ struct GameSettingsView: View {
                     }
                     .sheet(isPresented: $showSheet) {
                         addPlayerView()
-                            
+                        
                             .presentationDetents([.fraction(0.80)])
                     }
                 }
@@ -90,12 +80,13 @@ struct GameSettingsView: View {
         }
     }
     
-    struct GameSettingsView_Previews: PreviewProvider {
-        static var previews: some View {
-            NavigationStack {
-                GameSettingsView()
-            }
-            
+}
+
+struct GameSettingsView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationStack {
+            GameSettingsView()
         }
+        
     }
 }

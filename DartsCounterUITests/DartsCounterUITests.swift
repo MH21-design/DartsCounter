@@ -1,10 +1,3 @@
-//
-//  DartsCounterUITests.swift
-//  DartsCounterUITests
-//
-//  Created by Marius Hübbertz on 01.04.23.
-//
-
 import XCTest
 
 final class DartsCounterUITests: XCTestCase {

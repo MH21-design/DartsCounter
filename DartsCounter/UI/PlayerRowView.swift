@@ -1,12 +1,9 @@
-
 import SwiftUI
 
 struct PlayerRowView: View {
     
     @FetchRequest(sortDescriptors: [SortDescriptor(\.name)]) var players:
     FetchedResults<Player>
-    
-    
     
     var body: some View {
         List {
@@ -21,10 +18,10 @@ struct PlayerRowView: View {
         
     }
 }
-    
-    
-    struct PlayerRowView_Previews: PreviewProvider {
-        static var previews: some View {
-            PlayerRowView()
-        }
+
+
+struct PlayerRowView_Previews: PreviewProvider {
+    static var previews: some View {
+        PlayerRowView()
     }
+}

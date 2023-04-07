@@ -4,9 +4,8 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.secondary
-                    .opacity(0.2)
-                    .ignoresSafeArea()
+                BackgroundView()
+                
                 VStack {
                     ZStack {
                         Color.white
@@ -43,7 +42,7 @@ struct HomeView: View {
                                 .foregroundColor(Color("myColor"))
                             
                             NavigationLink {
-                                NeuesSpielView()
+                                NewGameView()
                                     .navigationTitle("NEUES SPIEL")
                             } label: {
                                 HStack(spacing: 56) {

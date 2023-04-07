@@ -15,6 +15,14 @@
 		2904DAF829DD78D9000FD250 /* Players.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2904DAF629DD78D9000FD250 /* Players.xcdatamodeld */; };
 		2904DAFA29DD796B000FD250 /* PlayersDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2904DAF929DD796B000FD250 /* PlayersDataController.swift */; };
 		2904DAFC29DD7D12000FD250 /* PlayerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2904DAFB29DD7D12000FD250 /* PlayerRowView.swift */; };
+		295717F629E0346C00D466CE /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295717F529E0346C00D466CE /* BackgroundView.swift */; };
+		29BA545029E035FB0088E70A /* BottomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BA544F29E035FB0088E70A /* BottomBarView.swift */; };
+		29BA545329E036A60088E70A /* TopSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BA545229E036A60088E70A /* TopSection.swift */; };
+		29BA545929E0383D0088E70A /* NewGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BA545829E0383D0088E70A /* NewGameView.swift */; };
+		29BA545B29E038770088E70A /* GameSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BA545A29E038770088E70A /* GameSelectionView.swift */; };
+		29BA545D29E039280088E70A /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BA545C29E039280088E70A /* TopBarView.swift */; };
+		29BA545F29E03A2D0088E70A /* MidSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BA545E29E03A2D0088E70A /* MidSectionView.swift */; };
+		29BA546329E03A9A0088E70A /* BottomSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BA546229E03A9A0088E70A /* BottomSectionView.swift */; };
 		29BFC88E29D8DF8B00F29E42 /* DartsCounterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BFC88D29D8DF8B00F29E42 /* DartsCounterApp.swift */; };
 		29BFC89029D8DF8B00F29E42 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BFC88F29D8DF8B00F29E42 /* HomeView.swift */; };
 		29BFC89229D8DF8B00F29E42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29BFC89129D8DF8B00F29E42 /* Assets.xcassets */; };
@@ -23,7 +31,6 @@
 		29BFC8A929D8DF8B00F29E42 /* DartsCounterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BFC8A829D8DF8B00F29E42 /* DartsCounterUITests.swift */; };
 		29BFC8AB29D8DF8B00F29E42 /* DartsCounterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BFC8AA29D8DF8B00F29E42 /* DartsCounterUITestsLaunchTests.swift */; };
 		29BFC8C029D8F25D00F29E42 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BFC8BD29D8F25100F29E42 /* ViewExtension.swift */; };
-		29BFC8C229D8F75900F29E42 /* NeuesSpielView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BFC8C129D8F75900F29E42 /* NeuesSpielView.swift */; };
 		29BFC8C429D9135100F29E42 /* StatistikView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BFC8C329D9135100F29E42 /* StatistikView.swift */; };
 		29CFA74329D9C82D002B567E /* GameSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CFA74229D9C82D002B567E /* GameSettingsView.swift */; };
 		29CFA74529D9CD21002B567E /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CFA74429D9CD21002B567E /* GameView.swift */; };
@@ -55,6 +62,14 @@
 		2904DAF729DD78D9000FD250 /* Players.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Players.xcdatamodel; sourceTree = "<group>"; };
 		2904DAF929DD796B000FD250 /* PlayersDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersDataController.swift; sourceTree = "<group>"; };
 		2904DAFB29DD7D12000FD250 /* PlayerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerRowView.swift; sourceTree = "<group>"; };
+		295717F529E0346C00D466CE /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		29BA544F29E035FB0088E70A /* BottomBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarView.swift; sourceTree = "<group>"; };
+		29BA545229E036A60088E70A /* TopSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopSection.swift; sourceTree = "<group>"; };
+		29BA545829E0383D0088E70A /* NewGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameView.swift; sourceTree = "<group>"; };
+		29BA545A29E038770088E70A /* GameSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSelectionView.swift; sourceTree = "<group>"; };
+		29BA545C29E039280088E70A /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
+		29BA545E29E03A2D0088E70A /* MidSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidSectionView.swift; sourceTree = "<group>"; };
+		29BA546229E03A9A0088E70A /* BottomSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSectionView.swift; sourceTree = "<group>"; };
 		29BFC88A29D8DF8B00F29E42 /* DartsCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DartsCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29BFC88D29D8DF8B00F29E42 /* DartsCounterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DartsCounterApp.swift; sourceTree = "<group>"; };
 		29BFC88F29D8DF8B00F29E42 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -66,7 +81,6 @@
 		29BFC8A829D8DF8B00F29E42 /* DartsCounterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DartsCounterUITests.swift; sourceTree = "<group>"; };
 		29BFC8AA29D8DF8B00F29E42 /* DartsCounterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DartsCounterUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		29BFC8BD29D8F25100F29E42 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
-		29BFC8C129D8F75900F29E42 /* NeuesSpielView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuesSpielView.swift; sourceTree = "<group>"; };
 		29BFC8C329D9135100F29E42 /* StatistikView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatistikView.swift; sourceTree = "<group>"; };
 		29CFA74229D9C82D002B567E /* GameSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingsView.swift; sourceTree = "<group>"; };
 		29CFA74429D9CD21002B567E /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -100,15 +114,16 @@
 		2904DAEE29DD6DC7000FD250 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				29BA545729E038190088E70A /* NewGameView */,
+				29BA545629E037AB0088E70A /* GameSettingsView */,
+				29BA545129E036770088E70A /* GameView */,
 				29BFC88D29D8DF8B00F29E42 /* DartsCounterApp.swift */,
 				29BFC88F29D8DF8B00F29E42 /* HomeView.swift */,
-				29BFC8C129D8F75900F29E42 /* NeuesSpielView.swift */,
-				29CFA74229D9C82D002B567E /* GameSettingsView.swift */,
 				2904DAE629DD54F1000FD250 /* addPlayerView.swift */,
 				2904DAFB29DD7D12000FD250 /* PlayerRowView.swift */,
-				29CFA74429D9CD21002B567E /* GameView.swift */,
-				2904DAF029DD6F02000FD250 /* GameSettingsBottomView.swift */,
-				2904DAF229DD6F80000FD250 /* GameSettingsMidView.swift */,
+				295717F529E0346C00D466CE /* BackgroundView.swift */,
+				29BA544F29E035FB0088E70A /* BottomBarView.swift */,
+				29BA545C29E039280088E70A /* TopBarView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -120,6 +135,36 @@
 				2904DAEC29DD5A69000FD250 /* ScreenExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		29BA545129E036770088E70A /* GameView */ = {
+			isa = PBXGroup;
+			children = (
+				29CFA74429D9CD21002B567E /* GameView.swift */,
+				29BA546229E03A9A0088E70A /* BottomSectionView.swift */,
+				29BA545229E036A60088E70A /* TopSection.swift */,
+				29BA545E29E03A2D0088E70A /* MidSectionView.swift */,
+			);
+			path = GameView;
+			sourceTree = "<group>";
+		};
+		29BA545629E037AB0088E70A /* GameSettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				29CFA74229D9C82D002B567E /* GameSettingsView.swift */,
+				2904DAF229DD6F80000FD250 /* GameSettingsMidView.swift */,
+				2904DAF029DD6F02000FD250 /* GameSettingsBottomView.swift */,
+			);
+			path = GameSettingsView;
+			sourceTree = "<group>";
+		};
+		29BA545729E038190088E70A /* NewGameView */ = {
+			isa = PBXGroup;
+			children = (
+				29BA545829E0383D0088E70A /* NewGameView.swift */,
+				29BA545A29E038770088E70A /* GameSelectionView.swift */,
+			);
+			path = NewGameView;
 			sourceTree = "<group>";
 		};
 		29BFC88129D8DF8A00F29E42 = {
@@ -313,17 +358,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				2904DAF829DD78D9000FD250 /* Players.xcdatamodeld in Sources */,
+				29BA545029E035FB0088E70A /* BottomBarView.swift in Sources */,
+				29BA545B29E038770088E70A /* GameSelectionView.swift in Sources */,
 				29BFC8C029D8F25D00F29E42 /* ViewExtension.swift in Sources */,
 				29BFC89029D8DF8B00F29E42 /* HomeView.swift in Sources */,
 				29CFA74329D9C82D002B567E /* GameSettingsView.swift in Sources */,
+				29BA545329E036A60088E70A /* TopSection.swift in Sources */,
 				2904DAF329DD6F80000FD250 /* GameSettingsMidView.swift in Sources */,
 				29BFC88E29D8DF8B00F29E42 /* DartsCounterApp.swift in Sources */,
+				29BA546329E03A9A0088E70A /* BottomSectionView.swift in Sources */,
+				29BA545F29E03A2D0088E70A /* MidSectionView.swift in Sources */,
 				2904DAFA29DD796B000FD250 /* PlayersDataController.swift in Sources */,
+				29BA545D29E039280088E70A /* TopBarView.swift in Sources */,
 				2904DAED29DD5A69000FD250 /* ScreenExtension.swift in Sources */,
 				2904DAF529DD769A000FD250 /* PlayerModel.swift in Sources */,
 				29BFC8C429D9135100F29E42 /* StatistikView.swift in Sources */,
+				295717F629E0346C00D466CE /* BackgroundView.swift in Sources */,
 				2904DAF129DD6F02000FD250 /* GameSettingsBottomView.swift in Sources */,
-				29BFC8C229D8F75900F29E42 /* NeuesSpielView.swift in Sources */,
+				29BA545929E0383D0088E70A /* NewGameView.swift in Sources */,
 				29CFA74529D9CD21002B567E /* GameView.swift in Sources */,
 				2904DAE729DD54F1000FD250 /* addPlayerView.swift in Sources */,
 				2904DAFC29DD7D12000FD250 /* PlayerRowView.swift in Sources */,

@@ -5,8 +5,7 @@ struct addPlayerView: View {
     @FetchRequest(sortDescriptors: [SortDescriptor(\.name)]) var players: FetchedResults<Player>
     @Environment(\.managedObjectContext) var moc
     
-    @Binding var playerOne: String
-    @Binding var playerTwo: String
+    @Binding var playersArray: [Player]
     @Binding var selectedPlayer: Player?
     @Binding var showSheet: Bool
     @State var playerName: String = ""
@@ -39,13 +38,7 @@ struct addPlayerView: View {
                     ForEach(players) { player in
                         Button(action:  {
                             selectedPlayer = player
-                            
-                            if playerOne == "" {
-                                playerOne = player.name ?? ""
-                            } else {
-                                playerTwo = player.name ?? ""
-                            }
-                            
+                            playersArray.append(player)
                             showSheet.toggle()
                         }) {
                             Text(player.name ?? "")
@@ -99,7 +92,8 @@ struct addPlayerView: View {
 
 struct addPlayerView_Previews: PreviewProvider {
     static var previews: some View {
-        addPlayerView(playerOne: .constant(""), playerTwo: .constant(""), selectedPlayer: .constant(nil), showSheet: .constant(false))
+        addPlayerView(playersArray: .constant([]), selectedPlayer: .constant(nil), showSheet: .constant(false))
+
 
     }
 }

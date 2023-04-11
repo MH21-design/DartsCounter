@@ -4,8 +4,7 @@ struct GameSettingsView: View {
     
     @State var showSheet: Bool = false
     @State var selectedPlayer: Player?
-    @State var playerOne: String
-    @State var playerTwo: String
+    @State var playersArray: [Player] = []
     
     var body: some View {
         
@@ -27,21 +26,23 @@ struct GameSettingsView: View {
                                 .background(Color.white)
                                 .clipShape(Circle())
                             
-                            if playerOne != "" {
+                            if playersArray.indices.contains(0) {
                                 Image(systemName: "x.square.fill")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 24)
                                     .onTapGesture {
-                                        playerOne = ""
+                                        playersArray.remove(at: playersArray.indices[0])
                                     }
+                                
                             }
                         }
-                        Text(playerOne)
+                        Text(playersArray.indices.contains(0) ? playersArray[0].name ?? "" : "")
                             .padding()
                             .font(.title2)
                             .fontWeight(.semibold)
                     }
+                    
                     VStack {
                         ZStack(alignment: .topTrailing) {
                             Image(systemName: "person")
@@ -53,18 +54,18 @@ struct GameSettingsView: View {
                                 .background(Color.white)
                                 .clipShape(Circle())
                             
-                            if playerTwo != "" {
+                            if playersArray.indices.contains(1) {
                                 Image(systemName: "x.square.fill")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 24)
                                     .onTapGesture {
-                                        playerTwo = ""
-                                }
+                                        playersArray.remove(at: playersArray.indices[1])
+                                    }
                             }
                         }
                         
-                        Text(playerTwo)
+                        Text(playersArray.indices.contains(1) ? playersArray[1].name ?? "" : "")
                             .padding()
                             .font(.title2)
                             .fontWeight(.semibold)
@@ -91,7 +92,7 @@ struct GameSettingsView: View {
                             .font(.title2)
                     }
                     .sheet(isPresented: $showSheet) {
-                        addPlayerView(playerOne: $playerOne, playerTwo: $playerTwo, selectedPlayer: $selectedPlayer, showSheet: $showSheet)
+                        addPlayerView(playersArray: $playersArray, selectedPlayer: $selectedPlayer, showSheet: $showSheet)
                             .presentationDetents([.fraction(0.80)])
                     }
                 }
@@ -106,7 +107,7 @@ struct GameSettingsView: View {
 struct GameSettingsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            GameSettingsView(playerOne: "", playerTwo: "")
+            GameSettingsView()
         }
         
     }

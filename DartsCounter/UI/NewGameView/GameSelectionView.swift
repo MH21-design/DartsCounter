@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct GameSelectionView: View {
+    
     var body: some View {
         VStack {
             ZStack {
@@ -10,7 +11,7 @@ struct GameSelectionView: View {
                     .foregroundColor(.secondary)
                     .border(Color.black, width: 2.5)
                 NavigationLink {
-                    GameSettingsView()
+                    GameSettingsView(playerOne: "", playerTwo: "")
                         .navigationTitle("GAME SETTINGS")
                 } label: {
                     Text("Spiel X01")

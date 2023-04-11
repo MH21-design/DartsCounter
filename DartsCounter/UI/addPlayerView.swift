@@ -2,7 +2,13 @@ import SwiftUI
 
 struct addPlayerView: View {
     
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.name)]) var players: FetchedResults<Player>
     @Environment(\.managedObjectContext) var moc
+    
+    @Binding var playerOne: String
+    @Binding var playerTwo: String
+    @Binding var selectedPlayer: Player?
+    @Binding var showSheet: Bool
     @State var playerName: String = ""
     
     var body: some View {
@@ -29,20 +35,34 @@ struct addPlayerView: View {
                     .frame(width: UIScreen.screenWidth - 56)
                     .cornerRadius(5)
                 
-                PlayerRowView()
-                    .frame(width: UIScreen.screenWidth - 56)
+                List {
+                    ForEach(players) { player in
+                        Button(action:  {
+                            selectedPlayer = player
+                            
+                            if playerOne == "" {
+                                playerOne = player.name ?? ""
+                            } else {
+                                playerTwo = player.name ?? ""
+                            }
+                            
+                            showSheet.toggle()
+                        }) {
+                            Text(player.name ?? "")
+                        }
+                    }
+                    .onDelete(perform: deleteItems)
+                }
+                .frame(width: UIScreen.screenWidth - 56)
                 
                 Button() {
-                    let newPlayer = Player(context: moc)
-                    newPlayer.id = UUID()
-                    newPlayer.name = playerName
+                    createPlayer(name: playerName)
                     
                     try? moc.save()
                     
                     playerName = ""
                 } label: {
                     Text("Hinzufügen")
-                    
                 }
                 .frame(width: UIScreen.screenWidth - 40, height: 80)
                 .background(Color("myColor"))
@@ -52,13 +72,34 @@ struct addPlayerView: View {
             .frame(width: UIScreen.screenWidth - 40,height: 550)
             .cornerRadius(20)
         }
+    }
+    
+    func deleteItems(at offsets: IndexSet) {
+        for offset in offsets {
+            let player = players[offset]
+            moc.delete(player)
+        }
+        try? moc.save()
+    }
+    
+    func createPlayer(name: String) {
+        let newPlayer = Player(context: moc)
         
+        let playerModel = PlayerModel(name: playerName)
+        newPlayer.id = playerModel.id
+        newPlayer.name = playerModel.name
+        newPlayer.currentPoints = Int32(playerModel.currentPoints)
+        newPlayer.numberOfThrows = Int32(playerModel.numberOfThrows)
+        newPlayer.numberOfDartThrows = Int32(playerModel.numberOfDartThrows)
+        newPlayer.isPlaying = playerModel.isPlaying
     }
 }
 
 
+
 struct addPlayerView_Previews: PreviewProvider {
     static var previews: some View {
-        addPlayerView()
+        addPlayerView(playerOne: .constant(""), playerTwo: .constant(""), selectedPlayer: .constant(nil), showSheet: .constant(false))
+
     }
 }

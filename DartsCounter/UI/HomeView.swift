@@ -9,7 +9,7 @@ struct HomeView: View {
                 VStack {
                     ZStack {
                         Color.white
-                            .cornerRadius(180)
+                            .cornerRadius(45)
                         
                         Image("logo-removebg")
                             .resizable()

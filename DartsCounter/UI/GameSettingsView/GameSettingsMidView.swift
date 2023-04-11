@@ -1,7 +1,11 @@
 import SwiftUI
 
 struct GameSettingsMidView: View {
+    
+    @State var selectedStartPoints: Int = 501
+    
     var body: some View {
+    
         Text("Spieleinstellungen")
             .font(.title)
             .padding(.top, 136)
@@ -9,30 +13,32 @@ struct GameSettingsMidView: View {
         HStack {
             
             Button("301") {
-                
+                selectedStartPoints = 301
             }
             .font(.title)
             .padding(.horizontal)
             .padding(.vertical, 8)
             .border(.black)
+            .background(selectedStartPoints == 301 ? Color("myColor") : Color.clear)
             .padding()
             
             Button("501") {
-                
+                selectedStartPoints = 501
             }
             .font(.title)
             .padding(.horizontal)
             .padding(.vertical, 8)
             .border(.black)
-            .background(Color("myColor"))
+            .background(selectedStartPoints == 501 ? Color("myColor") : Color.clear)
             
             Button("701") {
-                
+                selectedStartPoints = 701
             }
             .font(.title)
             .padding(.horizontal)
             .padding(.vertical, 8)
             .border(.black)
+            .background(selectedStartPoints == 701 ? Color("myColor") : Color.clear)
             .padding()
         }
         .padding(.top)
@@ -61,6 +67,6 @@ struct GameSettingsMidView: View {
 
 struct GameSettingsMidView_Previews: PreviewProvider {
     static var previews: some View {
-        GameSettingsMidView()
+        GameSettingsMidView(selectedStartPoints: 501)
     }
 }

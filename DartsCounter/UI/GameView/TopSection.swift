@@ -1,14 +1,13 @@
 import SwiftUI
+import Foundation
 
 struct TopSection: View {
+    @State var newGame: DartsGameModel
     
-    @State var name = "[NAME]"
-    @State var startpoints = 501
-    @State var pointsNow = 321
-    @State var lastThrow = 180
-    @State var dartsThrowen = 3
-    @State var throwenPoints = 180
-    
+    init(numberOfPlayers: Int, startPoints: Int) {
+        newGame = DartsGameModel(playersArray: [], numberOfPlayers: numberOfPlayers, startPoints: startPoints)
+    }
+
     var body: some View {
         Group {
             ZStack {
@@ -23,12 +22,12 @@ struct TopSection: View {
                     .opacity(0.1)
                     .border(.black, width: 2)
                 // .padding(.top, -12)
-                Text(name)
+                Text("\(newGame.numberOfPlayers)")
                     .font(.title)
                     .fontWeight(.semibold)
                 //.padding(.bottom, 12)
             }
-            Text("\(pointsNow)")
+            Text("Points")
                 .resizableFont()
                 .scaledToFit()
                 .frame(height: 100)
@@ -40,8 +39,3 @@ struct TopSection: View {
     }
 }
 
-struct TopSection_Previews: PreviewProvider {
-    static var previews: some View {
-        TopSection()
-    }
-}

@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct GameSettingsBottomView: View {
+    
+    
     var body: some View {
         ZStack {
             Color.secondary

@@ -6,9 +6,14 @@ struct addPlayerView: View {
     @Environment(\.managedObjectContext) var moc
     
     @Binding var playersArray: [Player]
-    @Binding var selectedPlayer: Player?
-    @Binding var showSheet: Bool
-    @State var playerName: String = ""
+    @Binding var playerName: String
+    @Binding var startPoints: Int32
+    @Binding var numberOfThrows: Int32
+    @Binding var numberOfDartThrows: Int32
+    @Binding var history: [Int32]
+    
+    @State var showSheet: Bool
+    @State var currentPlayerIndex: Int
     
     var body: some View {
         ZStack {
@@ -37,7 +42,6 @@ struct addPlayerView: View {
                 List {
                     ForEach(players) { player in
                         Button(action:  {
-                            selectedPlayer = player
                             playersArray.append(player)
                             showSheet.toggle()
                         }) {
@@ -81,19 +85,19 @@ struct addPlayerView: View {
         let playerModel = PlayerModel(name: playerName)
         newPlayer.id = playerModel.id
         newPlayer.name = playerModel.name
-        newPlayer.currentPoints = Int32(playerModel.currentPoints)
+        newPlayer.startPoints = Int32(playerModel.startPoints)
         newPlayer.numberOfThrows = Int32(playerModel.numberOfThrows)
         newPlayer.numberOfDartThrows = Int32(playerModel.numberOfDartThrows)
-        newPlayer.isPlaying = playerModel.isPlaying
+        newPlayer.hiostory = playerModel.history as NSObject
     }
 }
 
 
 
-struct addPlayerView_Previews: PreviewProvider {
-    static var previews: some View {
-        addPlayerView(playersArray: .constant([]), selectedPlayer: .constant(nil), showSheet: .constant(false))
+//struct addPlayerView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        addPlayerView(playersArray: [], playerName: "Name", startPoints: $0, numberOfThrows: <#Binding<Int32>#>, numberOfDartThrows: <#Binding<Int32>#>, history: <#Binding<[Int32]>#>, showSheet: <#Bool#>, currentPlayerIndex: <#Int#>)
+//
+//    }
+//}
 
-
-    }
-}

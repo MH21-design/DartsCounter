@@ -2,9 +2,16 @@ import SwiftUI
 
 struct GameSettingsView: View {
     
+    @ObservedObject var gameModel: DartsGameModelg
+    
     @State var showSheet: Bool = false
-    @State var selectedPlayer: Player?
-    @State var playersArray: [Player] = []
+    @State var playersArray: [Player]
+    @State var playerName: String
+    @State var startPoints: Int32
+    @State var numberOfThrows: Int32
+    @State var numberOfDartThrows: Int32
+    @State var history: [Int32]
+    @State var currentPlayerIndex: Int
     
     var body: some View {
         
@@ -92,7 +99,7 @@ struct GameSettingsView: View {
                             .font(.title2)
                     }
                     .sheet(isPresented: $showSheet) {
-                        addPlayerView(playersArray: $playersArray, selectedPlayer: $selectedPlayer, showSheet: $showSheet)
+                        addPlayerView(playersArray: $playersArray, playerName: $playerName, startPoints: $startPoints, numberOfThrows: $numberOfThrows, numberOfDartThrows: $numberOfDartThrows, history: $history, showSheet: true, currentPlayerIndex: currentPlayerIndex)
                             .presentationDetents([.fraction(0.80)])
                     }
                 }
@@ -104,11 +111,11 @@ struct GameSettingsView: View {
 
 
 
-struct GameSettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationStack {
-            GameSettingsView()
-        }
-        
-    }
-}
+//struct GameSettingsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationStack {
+//            GameSettingsView()
+//        }
+//        
+//    }
+//}

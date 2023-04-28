@@ -2,11 +2,6 @@ import SwiftUI
 import Foundation
 
 struct TopSection: View {
-    @State var newGame: DartsGameModel
-    
-    init(numberOfPlayers: Int, startPoints: Int) {
-        newGame = DartsGameModel(playersArray: [], numberOfPlayers: numberOfPlayers, startPoints: startPoints)
-    }
 
     var body: some View {
         Group {
@@ -22,7 +17,7 @@ struct TopSection: View {
                     .opacity(0.1)
                     .border(.black, width: 2)
                 // .padding(.top, -12)
-                Text("\(newGame.numberOfPlayers)")
+                Text("")
                     .font(.title)
                     .fontWeight(.semibold)
                 //.padding(.bottom, 12)

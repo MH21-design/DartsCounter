@@ -2,7 +2,6 @@ import SwiftUI
 
 struct GameSettingsBottomView: View {
     
-    
     var body: some View {
         ZStack {
             Color.secondary
@@ -26,8 +25,8 @@ struct GameSettingsBottomView: View {
     }
 }
 
-struct GameSettingsBottomView_Previews: PreviewProvider {
-    static var previews: some View {
-        GameSettingsBottomView()
-    }
-}
+//struct GameSettingsBottomView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GameSettingsBottomView()
+//    }
+//}

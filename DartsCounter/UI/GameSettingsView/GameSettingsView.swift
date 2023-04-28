@@ -2,16 +2,10 @@ import SwiftUI
 
 struct GameSettingsView: View {
     
-    @ObservedObject var gameModel: DartsGameModelg
+    @ObservedObject var gameModel = DartsGameModel(playersArray: [])
+    @ObservedObject var playerModel = PlayerModel(name: "")
     
     @State var showSheet: Bool = false
-    @State var playersArray: [Player]
-    @State var playerName: String
-    @State var startPoints: Int32
-    @State var numberOfThrows: Int32
-    @State var numberOfDartThrows: Int32
-    @State var history: [Int32]
-    @State var currentPlayerIndex: Int
     
     var body: some View {
         
@@ -33,18 +27,18 @@ struct GameSettingsView: View {
                                 .background(Color.white)
                                 .clipShape(Circle())
                             
-                            if playersArray.indices.contains(0) {
+                            if gameModel.playersArray.indices.contains(0) {
                                 Image(systemName: "x.square.fill")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 24)
                                     .onTapGesture {
-                                        playersArray.remove(at: playersArray.indices[0])
+                                        gameModel.playersArray.remove(at: gameModel.playersArray.indices[0])
                                     }
                                 
                             }
                         }
-                        Text(playersArray.indices.contains(0) ? playersArray[0].name ?? "" : "")
+                        Text(gameModel.playersArray.indices.contains(0) ? gameModel.playersArray[0].name ?? "" : "")
                             .padding()
                             .font(.title2)
                             .fontWeight(.semibold)
@@ -61,18 +55,18 @@ struct GameSettingsView: View {
                                 .background(Color.white)
                                 .clipShape(Circle())
                             
-                            if playersArray.indices.contains(1) {
+                            if gameModel.playersArray.indices.contains(1) {
                                 Image(systemName: "x.square.fill")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 24)
                                     .onTapGesture {
-                                        playersArray.remove(at: playersArray.indices[1])
+                                        gameModel.playersArray.remove(at: gameModel.playersArray.indices[1])
                                     }
                             }
                         }
                         
-                        Text(playersArray.indices.contains(1) ? playersArray[1].name ?? "" : "")
+                        Text(gameModel.playersArray.indices.contains(1) ? gameModel.playersArray[1].name ?? "" : "")
                             .padding()
                             .font(.title2)
                             .fontWeight(.semibold)
@@ -86,7 +80,7 @@ struct GameSettingsView: View {
                 
                 Spacer()
                 
-                GameSettingsBottomView()
+                GameSettingsBottomView(gameModel: gameModel)
             }
             .toolbar() {
                 ToolbarItem() {
@@ -99,7 +93,7 @@ struct GameSettingsView: View {
                             .font(.title2)
                     }
                     .sheet(isPresented: $showSheet) {
-                        addPlayerView(playersArray: $playersArray, playerName: $playerName, startPoints: $startPoints, numberOfThrows: $numberOfThrows, numberOfDartThrows: $numberOfDartThrows, history: $history, showSheet: true, currentPlayerIndex: currentPlayerIndex)
+                        addPlayerView(playerModel: playerModel, gameModel: gameModel, showSheet: showSheet)
                             .presentationDetents([.fraction(0.80)])
                     }
                 }

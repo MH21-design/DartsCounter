@@ -12,7 +12,7 @@ class PlayerModel : ObservableObject {
     init(name: String) {
         self.id = UUID()
         self.name = name
-        self.startPoints = 0
+        self.startPoints = 501
         self.numberOfThrows = 0
         self.numberOfDartThrows = 0
         self.history = []

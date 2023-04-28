@@ -4,7 +4,7 @@ struct TopBarView: View {
     var body: some View {
         Color("myColor")
             .ignoresSafeArea()
-            .frame(height: 90)
+            .frame(height: 95)
             .ignoresSafeArea()
     }
 }

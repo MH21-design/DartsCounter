@@ -5,15 +5,11 @@ struct addPlayerView: View {
     @FetchRequest(sortDescriptors: [SortDescriptor(\.name)]) var players: FetchedResults<Player>
     @Environment(\.managedObjectContext) var moc
     
-    @Binding var playersArray: [Player]
-    @Binding var playerName: String
-    @Binding var startPoints: Int32
-    @Binding var numberOfThrows: Int32
-    @Binding var numberOfDartThrows: Int32
-    @Binding var history: [Int32]
-    
-    @State var showSheet: Bool
-    @State var currentPlayerIndex: Int
+    @ObservedObject var playerModel: PlayerModel
+    @ObservedObject var gameModel: DartsGameModel
+
+    @State var showSheet = true
+    @State var playerName = ""
     
     var body: some View {
         ZStack {
@@ -31,7 +27,7 @@ struct addPlayerView: View {
                         .opacity(0.3)
                         .cornerRadius(5)
                 }
-                TextField("Gastbenutzer", text: $playerName)
+                TextField("Benutzer", text: $playerName)
                     .font(Font.system(size: 24))
                     .padding(16)
                     .background(Color.white)
@@ -42,7 +38,7 @@ struct addPlayerView: View {
                 List {
                     ForEach(players) { player in
                         Button(action:  {
-                            playersArray.append(player)
+                            gameModel.playersArray.append(player)
                             showSheet.toggle()
                         }) {
                             Text(player.name ?? "")
@@ -96,7 +92,7 @@ struct addPlayerView: View {
 
 //struct addPlayerView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        addPlayerView(playersArray: [], playerName: "Name", startPoints: $0, numberOfThrows: <#Binding<Int32>#>, numberOfDartThrows: <#Binding<Int32>#>, history: <#Binding<[Int32]>#>, showSheet: <#Bool#>, currentPlayerIndex: <#Int#>)
+//        addPlayerView()
 //
 //    }
 //}

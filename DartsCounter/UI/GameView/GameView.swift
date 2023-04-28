@@ -2,13 +2,15 @@ import SwiftUI
 
 struct GameView: View {
     
+    @ObservedObject var gameModel: DartsGameModel
+    
     var body: some View {
         
         ZStack {
             BackgroundView()
             
             VStack(spacing: 0) {
-                TopSection()
+                TopSection(gameModel: gameModel)
                 MidSectionView()
                 BottomSectionView()
             }

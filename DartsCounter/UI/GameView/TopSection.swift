@@ -2,7 +2,9 @@ import SwiftUI
 import Foundation
 
 struct TopSection: View {
-
+    
+    @ObservedObject var gameModel: DartsGameModel
+    
     var body: some View {
         Group {
             ZStack {
@@ -15,14 +17,14 @@ struct TopSection: View {
                 Rectangle()
                     .frame(height: 56)
                     .opacity(0.1)
-                    .border(.black, width: 2)
-                // .padding(.top, -12)
-                Text("")
+                    .border(.black, width: 1)
+                    .padding(.top, -9)
+                Text("\(gameModel.getPlayerName())")
                     .font(.title)
                     .fontWeight(.semibold)
-                //.padding(.bottom, 12)
+                    .padding(.bottom, 9)
             }
-            Text("Points")
+            Text("\(gameModel.getStartPoints())")
                 .resizableFont()
                 .scaledToFit()
                 .frame(height: 100)

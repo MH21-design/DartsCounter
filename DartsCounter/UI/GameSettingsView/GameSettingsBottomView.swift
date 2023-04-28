@@ -2,12 +2,14 @@ import SwiftUI
 
 struct GameSettingsBottomView: View {
     
+    @ObservedObject var gameModel: DartsGameModel
+    
     var body: some View {
         ZStack {
             Color.secondary
                 .ignoresSafeArea()
             NavigationLink {
-                GameView()
+                GameView(gameModel: gameModel)
                     .navigationTitle("GAME VIEW")
                     .padding(0)
             } label: {

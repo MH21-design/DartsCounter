@@ -1,38 +1,21 @@
 import Foundation
 
 class DartsGameModel: ObservableObject {
-    var playersArray: [Player]
+    
     var currentPlayerIndex = 0
-    var currentPlayer: Player
-
-    @Published var name: String = ""
-    @Published var startpoints = 501
-    @Published var lastThrow = 180
-    @Published var numberOfDartThrows: Int = 0
-    @Published var numberOfThrows: Int = 0
-    @Published var thrownPoints = 180
+    
+    @Published var playersArray: [Player]
 
     init(playersArray: [Player]) {
         self.playersArray = playersArray
-        self.currentPlayer = playersArray[currentPlayerIndex]
     }
-
-    func getCurrentPlayerDetails() {
-        name = currentPlayer.name!
-        startpoints = Int(currentPlayer.currentPoints)
-        numberOfThrows = Int(currentPlayer.numberOfThrows)
-        numberOfDartThrows = Int(currentPlayer.numberOfDartThrows)
-
+    
+    func getStartPoints() -> Int32 {
+        playersArray[currentPlayerIndex].startPoints
     }
-
-    func updateCurrentPlayerData() {
-        guard currentPlayerIndex < playersArray.count else {
-            return
-        }
-
-        let currentPlayer = playersArray[currentPlayerIndex]
-        name = currentPlayer.name ?? "Name"
-        numberOfDartThrows = Int(currentPlayer.numberOfDartThrows)
+    
+    func getPlayerName() -> String {
+        playersArray[currentPlayerIndex].name!
     }
 }
 

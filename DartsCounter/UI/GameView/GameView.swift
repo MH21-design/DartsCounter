@@ -11,8 +11,8 @@ struct GameView: View {
             
             VStack(spacing: 0) {
                 TopSection(gameModel: gameModel)
-                MidSectionView()
-                BottomSectionView()
+                MidSectionView(gameModel: gameModel)
+//                BottomSectionView()
             }
         }
     }

@@ -2,20 +2,17 @@ import SwiftUI
 
 struct MidSectionView: View {
     
-    @State var name = "[NAME]"
-    @State var startpoints = 501
-    @State var pointsNow = 321
-    @State var lastThrow = 180
-    @State var dartsThrowen = 3
-    @State var throwenPoints = 180
+    @ObservedObject var gameModel: DartsGameModel
     
+    @Binding var pointsInput: Int32
+
     var body: some View {
         Group {
             Divider()
             HStack {
                 Text("Letzte aufnahme:")
                 Spacer()
-                Text("\(lastThrow)")
+                Text("\(gameModel.getLastThrow())")
             }
             .padding(.horizontal)
             .font(.title3)
@@ -24,7 +21,7 @@ struct MidSectionView: View {
             HStack {
                 Text("Geworfene Darts:")
                 Spacer()
-                Text("\(dartsThrowen)")
+                Text("\(gameModel.getNumberOfDartThrows())")
             }
             .padding(.horizontal)
             .font(.title3)
@@ -61,37 +58,50 @@ struct MidSectionView: View {
                             .frame(width: 94, height: 40)
                     }
                     
-                    
-                    
                     ZStack {
                         Rectangle()
                             .frame(width: 184, height: 64, alignment: .center)
                             .opacity(0)
                             .border(.black, width: 2)
+
+                        Text("\(pointsInput)")
+                            .font(.title)
+                            .fontWeight(.semibold)
                     }
-                    
+
                     ZStack {
                         Rectangle()
                             .frame(width: 88, height: 64)
                             .foregroundColor(Color("myColor"))
                             .border(.secondary, width: 1)
-                        // .padding(.trailing, 8)
-                        Image(systemName: "arrow.right")
-                            .resizable()
-                            .scaledToFit()
-                            .bold()
-                            .frame(width: 94, height: 40)
+                            
+                        Button() {
+                            gameModel.finishThrow(pointsInput: pointsInput)
+                            pointsInput = 0
+                        } label: {
+                            Image(systemName: "arrow.right")
+                                .resizable()
+                                .scaledToFit()
+                                .bold()
+                                .frame(width: 94, height: 40)
+                        }
                     }
                     
                     
                 }
             }
         }
+        
+
     }
 }
 
-struct MidSectionView_Previews: PreviewProvider {
-    static var previews: some View {
-        MidSectionView()
-    }
-}
+
+
+
+//struct MidSectionView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MidSectionView(gameModel: DartsGameModel(playersArray: []))
+//    }
+//}
+//

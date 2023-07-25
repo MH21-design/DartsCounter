@@ -3,6 +3,7 @@ import SwiftUI
 struct GameView: View {
     
     @ObservedObject var gameModel: DartsGameModel
+    @State var pointsInput: Int32 = 0
     
     var body: some View {
         
@@ -11,8 +12,8 @@ struct GameView: View {
             
             VStack(spacing: 0) {
                 TopSection(gameModel: gameModel)
-                MidSectionView(gameModel: gameModel)
-//                BottomSectionView()
+                MidSectionView(gameModel: gameModel, pointsInput: $pointsInput)
+                BottomSectionView(pointsInput: $pointsInput)
             }
         }
     }

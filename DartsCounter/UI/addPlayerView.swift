@@ -77,14 +77,7 @@ struct addPlayerView: View {
     
     func createPlayer(name: String) {
         let newPlayer = Player(context: moc)
-        
-        let playerModel = PlayerModel(name: playerName)
-        newPlayer.id = playerModel.id
-        newPlayer.name = playerModel.name
-        newPlayer.startPoints = Int32(playerModel.startPoints)
-        newPlayer.numberOfThrows = Int32(playerModel.numberOfThrows)
-        newPlayer.numberOfDartThrows = Int32(playerModel.numberOfDartThrows)
-        newPlayer.hiostory = playerModel.history as NSObject
+        playerModel.newPlayer(name: name, startPoints: 501)
     }
 }
 

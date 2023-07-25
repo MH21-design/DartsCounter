@@ -2,9 +2,11 @@ import Foundation
 
 class DartsGameModel: ObservableObject {
     
-    var currentPlayerIndex = 0
     
+    @Published var currentPlayerIndex = 0
     @Published var playersArray: [Player]
+    
+    var showAlert = false
     
     init(playersArray: [Player]) {
         self.playersArray = playersArray
@@ -24,5 +26,20 @@ class DartsGameModel: ObservableObject {
     
     func getNumberOfDartThrows() -> Int32 {
         playersArray[currentPlayerIndex].numberOfDartThrows
+    }
+    
+    func switchToNextPlayer() {
+        if playersArray.count >= 2 {
+            currentPlayerIndex = (currentPlayerIndex + 1) % playersArray.count
+        }
+    }
+    
+    func finishThrow(pointsInput: Int32) {
+        var points = getStartPoints()
+        if pointsInput <= 180 {
+            points -= pointsInput
+            playersArray[currentPlayerIndex].startPoints = points
+            switchToNextPlayer()
+        }
     }
 }

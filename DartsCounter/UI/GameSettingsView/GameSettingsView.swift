@@ -2,8 +2,8 @@ import SwiftUI
 
 struct GameSettingsView: View {
     
-    @ObservedObject var gameModel = DartsGameModel(playersArray: [])
-    @ObservedObject var playerModel = PlayerModel(name: "")
+    @StateObject var gameModel = DartsGameModel(playersArray: [])
+    @StateObject var playerModel = PlayerModel()
     
     @State var showSheet: Bool = false
     

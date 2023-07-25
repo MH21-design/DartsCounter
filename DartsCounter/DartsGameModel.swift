@@ -4,11 +4,12 @@ class DartsGameModel: ObservableObject {
     
     
     @Published var currentPlayerIndex = 0
-    @Published var playersArray: [Player]
+    @Published var playersArray: [PlayerStruct]
+    @Published var showAlert = false
+    @Published var alertTitle = ""
+    @Published var alertMessage = ""
     
-    var showAlert = false
-    
-    init(playersArray: [Player]) {
+    init(playersArray: [PlayerStruct]) {
         self.playersArray = playersArray
     }
     
@@ -16,8 +17,12 @@ class DartsGameModel: ObservableObject {
         playersArray[currentPlayerIndex].startPoints
     }
     
+    func getRemainingPoints() -> Int32 {
+        playersArray[currentPlayerIndex].remainingPoints
+    }
+    
     func getPlayerName() -> String {
-        playersArray[currentPlayerIndex].name!
+        playersArray[currentPlayerIndex].name
     }
     
     func getLastThrow() -> Int32 {
@@ -28,18 +33,52 @@ class DartsGameModel: ObservableObject {
         playersArray[currentPlayerIndex].numberOfDartThrows
     }
     
+    func getAvg() -> Int32 {
+        playersArray[currentPlayerIndex].avg
+    }
+    
     func switchToNextPlayer() {
         if playersArray.count >= 2 {
+            playersArray[currentPlayerIndex].isPlaying = false
             currentPlayerIndex = (currentPlayerIndex + 1) % playersArray.count
+            playersArray[currentPlayerIndex].isPlaying = true
         }
     }
     
     func finishThrow(pointsInput: Int32) {
-        var points = getStartPoints()
+        let points = getRemainingPoints()
+        
         if pointsInput <= 180 {
-            points -= pointsInput
-            playersArray[currentPlayerIndex].startPoints = points
-            switchToNextPlayer()
+            
+            if pointsInput > points {
+                showAlert = true
+                alertTitle = "Hinweis"
+                alertMessage = "ÜBERWORFEN!"
+            }else if pointsInput == points {
+                playersArray[currentPlayerIndex].remainingPoints = (points - pointsInput)
+                showAlert = true
+                alertTitle = "HURRA"
+                alertMessage = "DU HAST GEWONNEN!"
+                startNewGame()
+            }else {
+                playersArray[currentPlayerIndex].remainingPoints = (points - pointsInput)
+                playersArray[currentPlayerIndex].lastThrowPoints = pointsInput
+                playersArray[currentPlayerIndex].numberOfDartThrows += 3
+                switchToNextPlayer()
+            }
+            
+        }else {
+            showAlert = true
+            alertTitle = "Hinweis"
+            alertMessage = "UNGÜLTIGE EINGABE!"
+        }
+    }
+    
+    func startNewGame() {
+        for index in 0..<playersArray.count {
+            playersArray[index].remainingPoints = playersArray[index].startPoints
+            playersArray[index].numberOfDartThrows = 0
+            playersArray[index].lastThrowPoints = 0
         }
     }
 }

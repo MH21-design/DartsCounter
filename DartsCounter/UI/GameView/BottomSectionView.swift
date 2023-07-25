@@ -191,9 +191,3 @@ struct BottomSectionView: View {
 
     }
 }
-
-//struct BottomSectionView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        BottomSectionView(pointsInput: 0)
-//    }
-//}

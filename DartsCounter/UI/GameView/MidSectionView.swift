@@ -3,7 +3,6 @@ import SwiftUI
 struct MidSectionView: View {
     
     @ObservedObject var gameModel: DartsGameModel
-    
     @Binding var pointsInput: Int32
 
     var body: some View {
@@ -86,22 +85,14 @@ struct MidSectionView: View {
                                 .frame(width: 94, height: 40)
                         }
                     }
-                    
-                    
                 }
             }
         }
-        
-
+        .alert(isPresented: $gameModel.showAlert) {
+            Alert(title: Text(gameModel.alertTitle),
+            message: Text(gameModel.alertMessage),
+            dismissButton: .default(Text("OK"))
+            )
+        }
     }
 }
-
-
-
-
-//struct MidSectionView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MidSectionView(gameModel: DartsGameModel(playersArray: []))
-//    }
-//}
-//

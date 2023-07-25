@@ -11,28 +11,44 @@ struct TopSection: View {
                 Color("myColor")
                     .frame(height: 90)
                     .ignoresSafeArea()
-                    .padding(-64)
+                    .padding(-16)
             }
-            ZStack {
-                Rectangle()
-                    .frame(height: 56)
-                    .opacity(0.1)
-                    .border(.black, width: 1)
-                    .padding(.top, -9)
-                Text("\(gameModel.getPlayerName())")
-                    .font(.title)
-                    .fontWeight(.semibold)
-                    .padding(.bottom, 9)
+                HStack{
+                    ForEach(gameModel.playersArray, id: \.id) { player in
+                        VStack{
+                            ZStack {
+                                Rectangle()
+                                    .frame(height: 56)
+                                    .opacity(0.1)
+                                    .border(.black, width: 1)
+                                    .padding(.top, -9)
+                                
+                                if player.isPlaying{
+                                    Text(player.name)
+                                        .font(.title)
+                                        .fontWeight(.semibold)
+                                        .padding(.bottom, 9)
+                                }else {
+                                    Text(player.name)
+                                        .font(.title)
+                                        .fontWeight(.thin)
+                                        .padding(.bottom, 9)
+                                }
+                            }
+
+                            Text("\(player.remainingPoints)")
+                                .resizableFont()
+                                .scaledToFit()
+                                .frame(height: 100)
+                                .font(.title)
+                                .fontWeight(.semibold)
+                                .padding(24)
+                        }
+                    }
+                }
+                Spacer()
             }
-            Text("\(gameModel.getStartPoints())")
-                .resizableFont()
-                .scaledToFit()
-                .frame(height: 100)
-                .font(.title)
-                .fontWeight(.semibold)
-                .padding(24)
         }
-        Spacer()
+        
     }
-}
 

@@ -38,7 +38,7 @@ struct GameSettingsView: View {
                                 
                             }
                         }
-                        Text(gameModel.playersArray.indices.contains(0) ? gameModel.playersArray[0].name ?? "" : "")
+                        Text(gameModel.playersArray.indices.contains(0) ? gameModel.playersArray[0].name : "")
                             .padding()
                             .font(.title2)
                             .fontWeight(.semibold)
@@ -66,7 +66,7 @@ struct GameSettingsView: View {
                             }
                         }
                         
-                        Text(gameModel.playersArray.indices.contains(1) ? gameModel.playersArray[1].name ?? "" : "")
+                        Text(gameModel.playersArray.indices.contains(1) ? gameModel.playersArray[1].name : "")
                             .padding()
                             .font(.title2)
                             .fontWeight(.semibold)
@@ -93,7 +93,7 @@ struct GameSettingsView: View {
                             .font(.title2)
                     }
                     .sheet(isPresented: $showSheet) {
-                        addPlayerView(playerModel: playerModel, gameModel: gameModel, showSheet: showSheet)
+                        addPlayerView(playerModel: playerModel, gameModel: gameModel)
                             .presentationDetents([.fraction(0.80)])
                     }
                 }
@@ -101,15 +101,3 @@ struct GameSettingsView: View {
         }
     }
 }
-
-
-
-
-//struct GameSettingsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NavigationStack {
-//            GameSettingsView()
-//        }
-//        
-//    }
-//}
